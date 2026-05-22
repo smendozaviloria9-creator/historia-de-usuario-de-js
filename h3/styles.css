@@ -1,0 +1,122 @@
+/* 1. Reset general para controlar mejor los tamaños y márgenes */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Centrado absoluto usando Flexbox en el body */
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: #f4f6f9; /* Fondo gris claro muy limpio */
+    padding: 20px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical */
+    align-items: center;     /* Centrado horizontal */
+    min-height: 50px    /* Toma todo el alto de la pantalla */
+}
+
+/* 3. Tarjeta contenedora de la aplicación */
+.contenedor-app {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sombra suave y moderna */
+    width: 100%;
+    max-width: 450px; /* Evita que se deforme en pantallas grandes */
+}
+
+h2 {
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-size: 1.6rem;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #7f8c8d;
+    font-size: 0.95rem;
+}
+
+/* 4. Alineación del input junto al botón */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+input[type="text"] {
+    flex-grow: 2;/* Hace que el input ocupe el espacio sobrante */
+    padding: 10px 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    outline: none;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #3498db; /* Cambia a azul al escribir */
+}
+
+#btnAgregar {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.2s ease;
+}
+
+#btnAgregar:hover {
+    background: #2980b9; /* Azul más oscuro al pasar el cursor */
+}
+
+/* 5. Lista de notas y comportamiento de los items */
+ul {
+    list-style: none; /* Quitamos los puntos por defecto */
+}
+
+.nota-item { 
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 10px; 
+    display: flex; 
+    justify-content: space-between; /* Empuja el botón eliminar al extremo derecho */
+    align-items: center; 
+    border-left: 4px solid #3498db; /* Línea decorativa azul a la izquierda */
+    animation: aparecer 0.3s ease; /* Efecto visual suave al aparecer */
+}
+
+/* Estilo para que el texto largo no rompa el diseño */
+.nota-item span {
+    color: #34495e;
+    word-break: break-word;
+    margin-right: 10px;
+}
+
+button.eliminar { 
+    color: white; 
+    background: #e74c3c; 
+    border: none; 
+    padding: 6px 12px; 
+    border-radius: 6px;
+    cursor: pointer; 
+    font-size: 0.85rem;
+    transition: background 0.2s ease;
+}
+
+button.eliminar:hover {
+    background: #c0392b; /* Rojo más intenso al pasar el cursor */
+}
+
+/* Pequeña animación para cuando agregues notas */
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
